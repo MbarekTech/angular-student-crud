@@ -1,0 +1,144 @@
+<div class="container m-auto w-50 ">
+    <h2 class="m-4 text-center text-primary fw-bold">
+      {{ isEditMode ? 'Modifier Étudiant' : 'Ajouter Étudiant' }}
+    </h2>
+    <div class="card shadow-sm m-5">
+      <div class="card-body p-5">
+        <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+          <!-- Nom Field -->
+          <div class="mb-3">
+            <label for="nom" class="form-label fw-bold">
+              <i class="bi bi-person-fill me-2"></i>Nom
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="nom"
+              formControlName="nom"
+              placeholder="Entrez le nom"
+            />
+            <div
+              *ngIf="studentForm.get('nom')?.invalid && studentForm.get('nom')?.touched"
+              class="text-danger mt-2"
+            >
+              Le nom est requis.
+            </div>
+          </div>
+  
+          <!-- Prénom Field -->
+          <div class="mb-3">
+            <label for="prenom" class="form-label fw-bold">
+              <i class="bi bi-person-badge-fill me-2"></i>Prénom
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="prenom"
+              formControlName="prenom"
+              placeholder="Entrez le prénom"
+            />
+            <div
+              *ngIf="studentForm.get('prenom')?.invalid && studentForm.get('prenom')?.touched"
+              class="text-danger mt-2"
+            >
+              Le prénom est requis.
+            </div>
+          </div>
+  
+          <!-- Email Field -->
+          <div class="mb-3">
+            <label for="email" class="form-label fw-bold">
+              <i class="bi bi-envelope-fill me-2"></i>Email
+            </label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+              placeholder="Entrez l'email"
+            />
+            <div
+              *ngIf="studentForm.get('email')?.invalid && studentForm.get('email')?.touched"
+              class="text-danger mt-2"
+            >
+              Veuillez entrer un email valide.
+            </div>
+          </div>
+  
+          <!-- Téléphone Field -->
+          <div class="mb-3">
+            <label for="tel" class="form-label fw-bold">
+              <i class="bi bi-telephone-fill me-2"></i>Téléphone
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="tel"
+              formControlName="tel"
+              placeholder="Entrez le téléphone"
+            />
+            <div
+              *ngIf="studentForm.get('tel')?.invalid && studentForm.get('tel')?.touched"
+              class="text-danger mt-2"
+            >
+              Le téléphone est requis.
+            </div>
+          </div>
+  
+          <!-- Date de Naissance Field -->
+          <div class="mb-3">
+            <label for="date_naissance" class="form-label fw-bold">
+              <i class="bi bi-calendar-fill me-2"></i>Date de Naissance
+            </label>
+            <input
+              type="date"
+              class="form-control"
+              id="date_naissance"
+              formControlName="date_naissance"
+            />
+            <div
+              *ngIf="studentForm.get('date_naissance')?.invalid && studentForm.get('date_naissance')?.touched"
+              class="text-danger mt-2"
+            >
+              La date de naissance est requise.
+            </div>
+          </div>
+  
+          <!-- Filière Field -->
+          <div class="mb-4">
+            <label for="filiere" class="form-label fw-bold">
+              <i class="bi bi-book-fill me-2"></i>Filière
+            </label>
+            <select
+              class="form-select"
+              id="filiere"
+              formControlName="filiere"
+            >
+              <option value="" disabled>Choisir une filière</option>
+              <option *ngFor="let filiere of filieres" [value]="filiere">
+                {{ filiere }}
+              </option>
+            </select>
+            <div
+              *ngIf="studentForm.get('filiere')?.invalid && studentForm.get('filiere')?.touched"
+              class="text-danger mt-2"
+            >
+              La filière est requise.
+            </div>
+          </div>
+  
+          <!-- Submit Button -->
+          <div class="d-grid">
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg fw-bold"
+              [disabled]="studentForm.invalid"
+            >
+              <i class="bi bi-check-circle-fill me-2"></i>
+              {{ isEditMode ? 'Modifier' : 'Ajouter' }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

@@ -1,100 +1,146 @@
-# Angular Student CRUD
+# 🎓 Mini Projet - Gestion des Étudiants
 
-Simple student management app built with Angular and Node.js. Basic CRUD operations with a clean interface.
+Une application complète de gestion des étudiants développée avec Angular et Node.js, permettant d'effectuer toutes les opérations CRUD (Create, Read, Update, Delete) avec une interface moderne et responsive.
 
-![Application Screenshot](screenshot.png)
+![Application Screenshot](screenshots/student-list-view.png)
 
-*Student list view with search functionality*
+*Interface principale de l'application avec la liste des étudiants et fonctionnalité de recherche*
 
-## What it does
+## 📱 Captures d'écran
 
-## What it does
+### 🏠 Liste des étudiants - Interface principale
+![Liste des étudiants](screenshots/student-list-view.png)
 
-This app lets you manage student records. You can add new students, edit existing ones, delete them, and search through the list. Nothing fancy, just the basics done right.
+*Tableau complet des étudiants avec barre de recherche, pagination et actions (Modifier/Supprimer). L'interface affiche tous les détails des étudiants : ID, Nom, Prénom, Email, Téléphone, Date de naissance, et Filière.*
 
-**Main features:**
-- Add/edit/delete students
-- Real-time search
-- Responsive design (works on mobile)
-- Form validation
+### ➕ Formulaire d'ajout d'étudiant
+![Ajouter étudiant](screenshots/add-student-form.png)
 
-## Built with
+*Formulaire moderne avec validation pour ajouter un nouvel étudiant. Comprend tous les champs requis : Nom, Prénom, Email, Téléphone, Date de naissance, et une liste déroulante pour la Filière.*
 
-## Built with
+## ✨ Fonctionnalités
 
-**Frontend:**
-- Angular 16
-- Bootstrap 5 
-- TypeScript
+- ✅ **Gestion complète des étudiants** (CRUD)
+- ✅ **Interface moderne** avec Angular Material et Bootstrap
+- ✅ **Recherche en temps réel** par nom, prénom ou filière
+- ✅ **Design responsive** (compatible mobile/tablette)
+- ✅ **Validation des formulaires** avec messages d'erreur
+- ✅ **Notifications utilisateur** avec snackbar
+- ✅ **Pagination** pour les grandes listes
+- ✅ **Base de données MySQL** avec API REST
 
-**Backend:**
-- Node.js + Express
-- MySQL database
+## 🛠️ Technologies utilisées
 
-Pretty standard stack. Nothing too crazy.
+### Frontend
+- **Angular 16** - Framework web
+- **Angular Material** - Composants UI
+- **Bootstrap 5** - Framework CSS
+- **TypeScript** - Langage de programmation
+- **Reactive Forms** - Gestion des formulaires
 
-## Getting started
+### Backend
+- **Node.js** - Runtime JavaScript
+- **Express.js** - Framework web
+- **MySQL** - Base de données
+- **dotenv** - Variables d'environnement
 
-You'll need Node.js, MySQL, and Angular CLI installed.
+## 🚀 Installation et configuration
 
-## Getting started
+### Prérequis
+- Node.js (v14+)
+- MySQL Server
+- Angular CLI (`npm install -g @angular/cli`)
 
-You'll need Node.js, MySQL, and Angular CLI installed.
-
-**Quick setup:**
-
-1. Clone this repo
+### 1. Cloner le projet
 ```bash
-git clone https://github.com/MbarekTech/angular-student-crud.git
-cd angular-student-crud
+git clone <votre-repo>
+cd mini_projet
 ```
 
-2. Set up the database
+### 2. Configuration de la base de données
 ```sql
 CREATE DATABASE gestion_etudiants;
 ```
-Then import the schema:
+
+Ensuite, importer le schéma :
 ```bash
-mysql -u root -p gestion_etudiants < database/schema.sql
+mysql -u root -p gestion_etudiants < database/etudiant.sql
 ```
 
-3. Start the backend
+### 3. Configuration du backend
 ```bash
-cd backend
+cd Back_end
 npm install
-node server.js
 ```
 
-4. Start the frontend
+Configurer le fichier `.env` :
+```env
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=votre_mot_de_passe
+DB_NAME=gestion_etudiants
+PORT=3000
+```
+
+### 4. Configuration du frontend
 ```bash
-cd frontend  
+cd ../Front_end
 npm install
+```
+
+### 5. Lancement de l'application
+
+**Terminal 1 - Backend :**
+```bash
+cd Back_end
+npm start
+```
+
+**Terminal 2 - Frontend :**
+```bash
+cd Front_end
 ng serve
 ```
 
-That's it. Backend runs on port 5000, frontend on 4200.
+L'application sera accessible sur `http://localhost:4200`
 
-## API endpoints
+## 📊 Structure du projet
 
-## API endpoints
+```
+mini_projet/
+├── Back_end/              # API REST Node.js
+│   ├── server.js          # Serveur principal
+│   ├── package.json       # Dépendances backend
+│   └── .env               # Variables d'environnement
+├── Front_end/             # Application Angular
+│   ├── src/app/
+│   │   ├── student-list/  # Composant liste
+│   │   ├── student-form/  # Composant formulaire
+│   │   ├── nav/           # Navigation
+│   │   └── footer/        # Pied de page
+│   └── package.json       # Dépendances frontend
+├── database/              # Scripts SQL
+│   └── etudiant.sql       # Schéma de base
+└── screenshots/           # Captures d'écran
+```
 
-Simple REST API:
+## 🌐 API Endpoints
 
-| Method | URL | What it does |
-|--------|-----|-------------|
-| GET | `/etudiants` | Get all students |
-| GET | `/etudiants/:id` | Get one student |
-| POST | `/etudiants` | Add new student |
-| PUT | `/etudiants/:id` | Update student |
-| DELETE | `/etudiants/:id` | Delete student |
+| Méthode | URL | Description |
+|---------|-----|-------------|
+| GET | `/etudiants` | Récupérer tous les étudiants |
+| GET | `/etudiants/:id` | Récupérer un étudiant par ID |
+| POST | `/etudiants` | Ajouter un nouvel étudiant |
+| PUT | `/etudiants/:id` | Modifier un étudiant |
+| DELETE | `/etudiants/:id` | Supprimer un étudiant |
 
-Example response:
+### Exemple de réponse JSON :
 ```json
 [
   {
     "id": 1,
     "nom": "Alami",
-    "prenom": "Ahmed", 
+    "prenom": "Ahmed",
     "email": "ahmed.alami@example.com",
     "tel": "0612345678",
     "date_naissance": "2000-01-15",
@@ -103,66 +149,51 @@ Example response:
 ]
 ```
 
-## How to use it
+## 🎯 Utilisation
 
-## How to use it
+1. **Ajouter un étudiant** : Cliquez sur "Ajouter un étudiant", remplissez le formulaire
+2. **Rechercher** : Utilisez la barre de recherche pour filtrer par nom, prénom ou filière
+3. **Modifier** : Cliquez sur l'icône "modifier" à côté d'un étudiant
+4. **Supprimer** : Cliquez sur l'icône "supprimer" (avec confirmation)
 
-Pretty straightforward:
+## 🐛 Problèmes fréquents
 
-- **Add students**: Click the add button, fill the form
-- **Search**: Type in the search box - searches name and major  
-- **Edit**: Click edit next to any student
-- **Delete**: Click delete (it asks for confirmation)
+**La base de données ne se connecte pas ?**
+- Vérifiez que MySQL est démarré
+- Contrôlez les paramètres dans le fichier `.env`
+- Assurez-vous que la base `gestion_etudiants` existe
 
-The interface is in French since this was originally for a French university project.
+**Angular ne démarre pas ?**
+- Essayez `npm install -g @angular/cli`
+- Supprimez `node_modules` et refaites `npm install`
 
-## Project structure
+**Erreurs CORS ?**
+- Le backend a déjà CORS activé, cela devrait fonctionner
 
-```
-angular-student-crud/
-├── backend/           # Express API
-│   ├── server.js      # Main server file  
-│   └── package.json   
-├── frontend/          # Angular app
-│   ├── src/app/
-│   │   ├── student-list/    # List component
-│   │   ├── student-form/    # Add form
-│   │   ├── edit-student/    # Edit form  
-│   │   └── student.service.ts # API calls
-│   └── package.json
-└── database/
-    └── schema.sql     # DB setup
-```
+## 📝 Comment prendre des captures d'écran
 
-## Common issues
+Pour mettre à jour les captures d'écran :
 
-## Common issues
+1. Lancez l'application avec quelques données de test
+2. Prenez des captures d'écran des différentes vues
+3. Sauvegardez-les dans le dossier `screenshots/` avec ces noms :
+   - `student-list-view.png` - Vue principale avec la liste des étudiants
+   - `add-student-form.png` - Formulaire d'ajout d'étudiant
 
-**Database won't connect?**
-- Make sure MySQL is running
-- Check your password in `backend/server.js`
-- Database name is `gestion_etudiants`
+**Note :** Les captures d'écran actuelles montrent parfaitement les fonctionnalités principales de l'application !
 
-**Angular won't start?**  
-- Try `npm install -g @angular/cli` first
-- Delete `node_modules` and run `npm install` again
+## 🔮 Améliorations futures
 
-**CORS errors?**
-- Backend already has CORS enabled, should work fine
+- 🔐 Authentification utilisateur
+- 📊 Export Excel/PDF
+- 📸 Photos d'étudiants
+- 🧪 Tests unitaires
+- 🐳 Containerisation Docker
 
-## What's next
+## 📄 Licence
 
-Some things I might add later:
-- User login/auth
-- Export to Excel 
-- Student photos
-- Better validation
-- Tests (I know, I know...)
-
-## License
-
-MIT - do whatever you want with it.
+MIT License - Vous pouvez utiliser ce code comme vous le souhaitez.
 
 ---
 
-Made this for a university project. Pretty basic but it works!
+*Projet développé dans le cadre d'un mini-projet universitaire*
