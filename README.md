@@ -67,7 +67,7 @@ node server.js
 
 4. Start the frontend
 ```bash
-cd mini_projet  
+cd frontend  
 npm install
 ng serve
 ```
@@ -123,7 +123,7 @@ angular-student-crud/
 ├── backend/           # Express API
 │   ├── server.js      # Main server file  
 │   └── package.json   
-├── mini_projet/       # Angular app
+├── frontend/          # Angular app
 │   ├── src/app/
 │   │   ├── student-list/    # List component
 │   │   ├── student-form/    # Add form
