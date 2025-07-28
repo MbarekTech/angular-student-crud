@@ -2,10 +2,6 @@
 
 Une application complète de gestion des étudiants développée avec Angular et Node.js, permettant d'effectuer toutes les opérations CRUD (Create, Read, Update, Delete) avec une interface moderne et responsive.
 
-![Application Screenshot](screenshots/student-list-view.png)
-
-*Interface principale de l'application avec la liste des étudiants et fonctionnalité de recherche*
-
 ## 📱 Captures d'écran
 
 ### 🏠 Liste des étudiants - Interface principale
