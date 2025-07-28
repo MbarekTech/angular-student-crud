@@ -1,0 +1,43 @@
+{
+  "name": "angular-student-crud",
+  "version": "1.0.0",
+  "description": "A clean, responsive student management application demonstrating full-stack CRUD operations with Angular 16 frontend, Node.js/Express backend, and MySQL database",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm start",
+    "client": "cd mini_projet && ng serve",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install-all": "npm install && cd backend && npm install && cd ../mini_projet && npm install",
+    "build": "cd mini_projet && ng build",
+    "test": "cd mini_projet && ng test"
+  },
+  "keywords": [
+    "angular",
+    "crud",
+    "student-management",
+    "nodejs",
+    "express",
+    "mysql",
+    "typescript",
+    "bootstrap",
+    "full-stack"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MbarekTech/angular-student-crud.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MbarekTech/angular-student-crud/issues"
+  },
+  "homepage": "https://github.com/MbarekTech/angular-student-crud#readme"
+}

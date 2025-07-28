@@ -1,0 +1,83 @@
+<div class="container mt-4">
+  <h2>{{ isEditMode ? 'Modifier' : 'Ajouter' }} un étudiant</h2>
+  <form (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+    <div class="mb-3">
+      <label for="nom" class="form-label">Nom</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nom"
+        [(ngModel)]="student.nom"
+        name="nom"
+        required
+      />
+      <div class="invalid-feedback">Veuillez entrer le nom.</div>
+    </div>
+    <div class="mb-3">
+      <label for="prenom" class="form-label">Prénom</label>
+      <input
+        type="text"
+        class="form-control"
+        id="prenom"
+        [(ngModel)]="student.prenom"
+        name="prenom"
+        required
+      />
+      <div class="invalid-feedback">Veuillez entrer le prénom.</div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        [(ngModel)]="student.email"
+        name="email"
+        required
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+      />
+      <div class="invalid-feedback">Veuillez entrer une adresse email valide.</div>
+    </div>
+    <div class="mb-3">
+      <label for="tel" class="form-label">Téléphone</label>
+      <input
+        type="tel"
+        class="form-control"
+        id="tel"
+        [(ngModel)]="student.tel"
+        name="tel"
+        required
+        pattern="^[+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
+      />
+      <div class="invalid-feedback">Veuillez entrer un numéro de téléphone valide.</div>
+    </div>
+    <div class="mb-3">
+      <label for="date_naissance" class="form-label">Date de naissance</label>
+      <input
+        type="date"
+        class="form-control"
+        id="date_naissance"
+        [(ngModel)]="student.date_naissance"
+        name="date_naissance"
+        required
+      />
+      <div class="invalid-feedback">Veuillez entrer la date de naissance.</div>
+    </div>
+    <div class="mb-3">
+      <label for="filiere" class="form-label">Filière</label>
+      <input
+        type="text"
+        class="form-control"
+        id="filiere"
+        [(ngModel)]="student.filiere"
+        name="filiere"
+        required
+      />
+      <div class="invalid-feedback">Veuillez entrer la filière.</div>
+    </div>
+    <button type="submit" class="btn btn-primary">
+      {{ isEditMode ? 'Modifier' : 'Ajouter' }}
+    </button>
+    <a routerLink="/students" class="btn btn-secondary ms-2">Annuler</a>
+  </form>
+</div>
